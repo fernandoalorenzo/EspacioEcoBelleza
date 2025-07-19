@@ -1,0 +1,252 @@
+/* Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Estilos personalizados para Espacio Ecobelleza */
+:root {
+  /* Colores NATURA */
+  --natura-green: #10b981;
+  --natura-green-light: #d1fae5;
+  --natura-green-dark: #059669;
+  --natura-gold: #f59e0b;
+  --natura-cream: #fef3e2;
+  
+  /* Gradientes */
+  --gradient-hero: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-card: linear-gradient(180deg, #ffffff 0%, #f8fffe 100%);
+  --gradient-accent: linear-gradient(45deg, #f59e0b 0%, #fbbf24 100%);
+  
+  /* Sombras */
+  --shadow-natura: 0 10px 30px -5px rgba(16, 185, 129, 0.2);
+  --shadow-card: 0 4px 20px -2px rgba(16, 185, 129, 0.1);
+  --shadow-button: 0 4px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+/* Tipografía personalizada */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+/* Clases utilitarias personalizadas */
+.bg-natura-green { background-color: var(--natura-green) !important; }
+.bg-natura-green-light { background-color: var(--natura-green-light) !important; }
+.bg-natura-green-dark { background-color: var(--natura-green-dark) !important; }
+.bg-natura-gold { background-color: var(--natura-gold) !important; }
+.bg-natura-cream { background-color: var(--natura-cream) !important; }
+
+.text-natura-green { color: var(--natura-green) !important; }
+.text-natura-green-dark { color: var(--natura-green-dark) !important; }
+.text-natura-gold { color: var(--natura-gold) !important; }
+
+.border-natura-green { border-color: var(--natura-green) !important; }
+
+/* Gradientes */
+.bg-gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.bg-gradient-card {
+  background: var(--gradient-card);
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+}
+
+/* Sombras personalizadas */
+.shadow-natura {
+  box-shadow: var(--shadow-natura);
+}
+
+.shadow-card-natura {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-button-natura {
+  box-shadow: var(--shadow-button);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Componentes personalizados */
+.hero-section {
+  position: relative;
+  min-height: 70vh;
+  background-image: url('@/assets/natura-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(16, 185, 129, 0.4);
+}
+
+.product-card {
+  transition: all 0.3s ease;
+  border: none;
+  background: var(--gradient-card);
+  box-shadow: var(--shadow-card);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-natura);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.btn-natura-primary {
+  background: var(--gradient-accent);
+  border: none;
+  color: #1f2937;
+  font-weight: 600;
+  box-shadow: var(--shadow-button);
+  transition: all 0.3s ease;
+}
+
+.btn-natura-primary:hover {
+  background: var(--natura-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -6px rgba(245, 158, 11, 0.4);
+  color: #1f2937;
+}
+
+.btn-natura-outline {
+  border: 2px solid var(--natura-green);
+  color: var(--natura-green);
+  background: transparent;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-natura-outline:hover {
+  background: var(--natura-green);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.navbar-natura {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-natura-transparent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  min-height: 60px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-natura-scrolled {
+  background: rgba(50, 50, 50, 0.85);
+  backdrop-filter: blur(10px);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  min-height: 60px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 1.8s ease;
+}
+
+.footer-natura {
+  background: var(--natura-green-dark);
+  color: white;
+}
+
+/* Efectos de hover para iconos */
+.icon-hover {
+  transition: all 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+  color: var(--natura-gold);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Loading spinner personalizado */
+.spinner-natura {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--natura-green-light);
+  border-top: 4px solid var(--natura-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
