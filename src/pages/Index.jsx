@@ -110,9 +110,6 @@ const Index = () => {
 							<Badge className="mb-3 bg-natura-green-light text-natura-green fs-1">
 								Productos Destacados
 							</Badge>
-							{/* <h2 className="display-4 fw-bold mb-3">
-								Nuestros Productos
-							</h2> */}
 							<p className="fs-5 text-muted">
 								Descubre nuestra selección de productos NATURA
 								para cuidar tu belleza

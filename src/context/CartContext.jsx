@@ -11,6 +11,15 @@ export const useCart = () => {
   return context;
 };
 
+const toasterStyle = {
+		position: "bottom-right",
+		style: {
+			backgroundColor: "white",
+			color: "green",
+			border: "2px solid green",
+    }
+};
+
 export const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -20,14 +29,14 @@ export const CartProvider = ({ children }) => {
       const existingItem = prevItems.find(item => item.id === product.id);
       
       if (existingItem) {
-        toast.success(`Agregaste otra unidad de ${product.name}`);
+        toast.success(`Agregaste otra unidad de ${product.name}`, toasterStyle );
         return prevItems.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        toast.success(`${product.name} agregado al carrito`);
+        toast.success(`${product.name} agregado al carrito`, toasterStyle);
         return [...prevItems, { ...product, quantity: 1 }];
       }
     });
@@ -37,7 +46,7 @@ export const CartProvider = ({ children }) => {
     setItems(prevItems => {
       const item = prevItems.find(item => item.id === productId);
       if (item) {
-        toast.success(`${item.name} eliminado del carrito`);
+        toast.success(`${item.name} eliminado del carrito`, toasterStyle);
       }
       return prevItems.filter(item => item.id !== productId);
     });
@@ -60,7 +69,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setItems([]);
-    toast.success('Carrito vaciado');
+    toast.success("Carrito vaciado", toasterStyle);
   };
 
   const getTotalItems = () => {
