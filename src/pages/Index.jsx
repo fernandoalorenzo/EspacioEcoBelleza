@@ -1,20 +1,30 @@
-import React from 'react';
-import { Container, Row, Col, Button, Badge, Card } from 'react-bootstrap';
-import { Header } from '@/components/Header';
-import { ProductCard } from '@/components/ProductCard';
-import { CartProvider } from '@/context/CartContext';
-import { useProducts } from '@/hooks/useProducts';
-import { Star, Truck, Shield, Leaf, MessageCircle, Heart, ShoppingCart } from 'lucide-react';
-import { Toaster } from 'react-hot-toast';
+import React from "react";
+import { Container, Row, Col, Button, Badge, Card } from "react-bootstrap";
+import { Header } from "@/components/Header";
+import { ProductCard } from "@/components/ProductCard";
+import { CartProvider } from "@/context/CartContext";
+import { useProducts } from "@/hooks/useProducts";
+import {
+	Star,
+	Truck,
+	Shield,
+	Leaf,
+	MessageCircle,
+	Heart,
+	ShoppingCart,
+} from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 const Index = () => {
-  const { products, loading, error } = useProducts();
+	const { products, loading, error } = useProducts();
 
-  const scrollToProducts = () => {
-    document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' });
-  };
+	const scrollToProducts = () => {
+		document
+			.getElementById("productos")
+			?.scrollIntoView({ behavior: "smooth" });
+	};
 
-  return (
+	return (
 		<CartProvider>
 			<div className="min-vh-100">
 				<Toaster position="top-right" />
@@ -337,7 +347,7 @@ const Index = () => {
 				</footer>
 			</div>
 		</CartProvider>
-  );
+	);
 };
 
 export default Index;
