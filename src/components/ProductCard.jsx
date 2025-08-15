@@ -9,7 +9,7 @@ export const ProductCard = ({ product }) => {
 				{/* Imagen */}
 				<Card.Img
 					variant="top"
-					src={product.image} // Link directo de Drive o cualquier URL
+					src={product.image}
 					alt={product.name}
 					style={{ height: "250px", objectFit: "cover" }}
 				/>

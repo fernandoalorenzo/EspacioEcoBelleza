@@ -9,13 +9,24 @@ const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tq
 
 // 🔹 Convierte links de Google Drive a formato directo (uc?id=...)
 const getDirectDriveLink = (url) => {
-	if (!url) return url;
+	if (!url) {
+		console.warn("URL de imagen vacía o no definida");
+		return "https://via.placeholder.com/250"; // Imagen por defecto para depuración
+	}
 	// Si ya está en formato directo, lo dejamos igual
-	if (url.includes("uc?id=")) return url;
-	// Si es un link de Google Drive con /d/{ID}/view
+	if (url.includes("uc?id=")) {
+		console.log("URL ya en formato directo:", url);
+		return url;
+	}
+	// Si es un enlace de Google Drive con /d/{ID}/view
 	const match = url.match(/\/d\/([a-zA-Z0-9_-]+)\//);
-	if (match && match[1]) return `https://drive.google.com/uc?id=${match[1]}`;
-	return url; // Otros enlaces se dejan igual
+	if (match && match[1]) {
+		const directUrl = `https://drive.google.com/uc?id=${match[1]}`;
+		console.log("URL transformada:", directUrl);
+		return directUrl;
+	}
+	console.warn("URL no reconocida como Google Drive:", url);
+	return url; // Devolver la URL original si no es de Google Drive
 };
 
 export const useProducts = (options = {}) => {
