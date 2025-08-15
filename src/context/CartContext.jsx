@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const CartContext = createContext();
@@ -14,6 +14,23 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
 	const [items, setItems] = useState([]);
 	const [isOpen, setIsOpen] = useState(false);
+
+	// 🔹 Cargar carrito desde localStorage al iniciar
+	useEffect(() => {
+		const storedCart = localStorage.getItem("cart");
+		if (storedCart) {
+			try {
+				setItems(JSON.parse(storedCart));
+			} catch (e) {
+				console.error("Error parsing cart from localStorage", e);
+			}
+		}
+	}, []);
+
+	// 🔹 Guardar carrito cada vez que cambie
+	useEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(items));
+	}, [items]);
 
 	const addToCart = (product) => {
 		setItems((prevItems) => {
@@ -60,7 +77,6 @@ export const CartProvider = ({ children }) => {
 
 	const clearCart = () => {
 		setItems([]);
-		toast.success("Carrito vaciado");
 	};
 
 	const getTotalItems = () => {
