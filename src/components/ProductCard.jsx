@@ -11,7 +11,7 @@ export const ProductCard = ({ product }) => {
 	};
 
 	return (
-		<Card className="h-100 shadow-sm">
+		<Card className="product-card h-100 shadow-sm animate-fade-in">
 			<div className="position-relative overflow-hidden">
 				{/* Imagen */}
 				<Card.Img
@@ -39,26 +39,26 @@ export const ProductCard = ({ product }) => {
 				</div>
 			</div>
 
-			<Card.Body>
-				<Card.Title>{product.name}</Card.Title>
-				<Card.Text>{product.description}</Card.Text>
-				<Card.Text className="fw-bold">
-					${product.price}
-					<Button
-						onClick={handleAddToCart}
-						className="bg-gradient-accent hover:bg-natura-gold/90 text-accent-foreground shadow-button-natura hover:shadow-lg transition-all duration-300 hover:scale-105"
-						size="sm">
-						<ShoppingCart className="w-4 h-4 mr-2" />
-						Agregar
-					</Button>
+			<Card.Body className="d-flex flex-column">
+				<Card.Title className="text-natura-green h5 mb-2">
+					{product.name}
+				</Card.Title>
+				<Card.Text className="text-muted flex-grow-1 small">
+					{product.description}
 				</Card.Text>
 
-				{/* <div className="flex items-center justify-between"> */}
-				{/* <div className="text-2xl font-bold text-natura-green">
+				<div className="d-flex justify-content-between align-items-center mt-auto">
+					<div className="h4 mb-0 text-natura-green fw-bold">
 						${product.price.toLocaleString()}
-					</div> */}
-
-				{/* </div> */}
+					</div>
+					<Button
+						onClick={handleAddToCart}
+						className="btn-natura-primary d-flex align-items-center gap-2"
+						size="sm">
+						<ShoppingCart size={16} />
+						Agregar
+					</Button>
+				</div>
 			</Card.Body>
 		</Card>
 	);
