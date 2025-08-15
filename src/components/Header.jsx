@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Navbar, Nav, Container, Button, Badge } from 'react-bootstrap';
-import { MessageCircle, Leaf } from 'lucide-react';
-import { CartDrawer } from './CartDrawer';
+import React, { useState, useEffect } from "react";
+import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap";
+import { MessageCircle, Leaf } from "lucide-react";
+import { CartDrawer } from "./CartDrawer";
 
 export const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
-    };
+	useEffect(() => {
+		const handleScroll = () => {
+			const isScrolled = window.scrollY > 50;
+			setScrolled(isScrolled);
+		};
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
-  return (
+	return (
 		<Navbar
 			expand="lg"
 			className={`sticky-top ${
@@ -39,7 +39,9 @@ export const Header = () => {
 						</div>
 						{/* <small className="text-muted" style={{ fontSize: '0.75rem' }}>Productos NATURA</small> */}
 						<div className="h6 mt-1">
-							<Badge pill bg="transparent border border-2 border-success-subtle text-natura-green fw-semibold">
+							<Badge
+								pill
+								bg="transparent border border-2 border-success-subtle text-natura-green fw-semibold">
 								Productos NATURA
 							</Badge>
 						</div>
@@ -49,17 +51,16 @@ export const Header = () => {
 				<Nav className="ms-auto d-flex align-items-center gap-2">
 					<Button
 						variant="outline-success"
-						size="sm"
 						onClick={() =>
-							window.open("https://wa.me/5493415191714", "_blank")
+							window.open("https://wa.me/5493413045300", "_blank")
 						}
 						className="d-none d-sm-flex align-items-center gap-2 btn-natura-outline">
-						<MessageCircle size={16} />
+						<MessageCircle size={20} />
 						Contacto
 					</Button>
 					<CartDrawer />
 				</Nav>
 			</Container>
 		</Navbar>
-  );
+	);
 };
